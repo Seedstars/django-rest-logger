@@ -14,6 +14,7 @@ Requirements
 
 -  Python (2.7, 3.3, 3.4)
 -  Django (1.8)
+-  Django REST Framework (3.3)
 
 Installation
 ------------
@@ -27,7 +28,15 @@ Install using ``pip``\ ...
 Usage
 ------------
 
-Add logger configuration to your settings.py::
+Add default exception handler to your Django REST Framework settings::
+
+REST_FRAMEWORK = {
+    'EXCEPTION_HANDLER': 'django_rest_logger.handlers.rest_exception_handler',
+}
+
+
+
+Add logger configuration to your development settings.py::
 
     LOGGING = {
         'version': 1,
@@ -35,6 +44,12 @@ Add logger configuration to your settings.py::
         'root': {
             'level': 'DEBUG',
             'handlers': ['django_rest_logger_handler'],
+        },
+        'formatters': {
+            'verbose': {
+                'format': '%(levelname)s %(asctime)s %(module)s '
+                          '%(process)d %(thread)d %(message)s'
+            },
         },
         'handlers': {
             'django_rest_logger_handler': {
@@ -63,4 +78,55 @@ Add logger configuration to your settings.py::
     LOGGER_ERROR = DEFAULT_LOGGER
     LOGGER_WARNING = DEFAULT_LOGGER
 
+
+Example for logger configuration using Sentry to be used in your production settings.py::
+
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': True,
+        'root': {
+            'level': 'WARNING',
+            'handlers': ['sentry'],
+        },
+        'formatters': {
+            'verbose': {
+                'format': '%(levelname)s %(asctime)s %(module)s '
+                          '%(process)d %(thread)d %(message)s'
+            },
+        },
+        'handlers': {
+            'sentry': {
+                'level': 'ERROR',
+                'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
+            },
+            'console': {
+                'level': 'DEBUG',
+                'class': 'logging.StreamHandler',
+                'formatter': 'verbose'
+            }
+        },
+        'loggers': {
+            'django.db.backends': {
+                'level': 'ERROR',
+                'handlers': ['console'],
+                'propagate': False,
+            },
+            'raven': {
+                'level': 'DEBUG',
+                'handlers': ['sentry'],
+                'propagate': False,
+            },
+            'sentry.errors': {
+                'level': 'DEBUG',
+                'handlers': ['sentry'],
+                'propagate': False,
+            },
+        },
+    }
+
+    DEFAULT_LOGGER = 'raven'
+
+    LOGGER_EXCEPTION = DEFAULT_LOGGER
+    LOGGER_ERROR = DEFAULT_LOGGER
+    LOGGER_WARNING = DEFAULT_LOGGER
 
