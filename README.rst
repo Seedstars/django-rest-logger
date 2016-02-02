@@ -1,7 +1,6 @@
 REST Logger for Django
 =======================
 
-|build-status-image| |pypi-version|
 
 **REST logger for Django**
 
