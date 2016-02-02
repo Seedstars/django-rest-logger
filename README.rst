@@ -30,10 +30,9 @@ Usage
 
 Add default exception handler to your Django REST Framework settings::
 
-REST_FRAMEWORK = {
-    'EXCEPTION_HANDLER': 'django_rest_logger.handlers.rest_exception_handler',
-}
-
+    REST_FRAMEWORK = {
+        'EXCEPTION_HANDLER': 'django_rest_logger.handlers.rest_exception_handler',
+    }
 
 
 Add logger configuration to your development settings.py::
