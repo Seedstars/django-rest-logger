@@ -59,3 +59,21 @@ def warning(message, details):
 
     logger = logging.getLogger(settings.LOGGER_WARNING)
     logger.warning(msg=message, extra=details)
+
+
+def info(message):
+    """
+    Log a info message during execution.
+
+    This method is recommended for cases when activity tracking is needed.
+
+    Args:
+        message: message identifying the error
+
+    Returns:
+
+    """
+    assert isinstance(message, str)
+
+    logger = logging.getLogger(settings.LOGGER_INFO)
+    logger.info(msg=message)
