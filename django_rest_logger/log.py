@@ -15,10 +15,10 @@ def exception():
     :return:
     """
     logger = logging.getLogger(settings.LOGGER_EXCEPTION)
-    logger.exception(msg=sys.exc_info()[1])
+    logger.exception(msg=sys.exc_info())
 
 
-def error(message, details, status_code):
+def error(message, details=None, status_code=400):
     """
     Log an error occurred during execution.
 
@@ -31,9 +31,6 @@ def error(message, details, status_code):
     Returns:
 
     """
-    assert isinstance(message, str)
-    assert isinstance(details, dict)
-    assert isinstance(status_code, int)
 
     details['http_status_code'] = status_code
 
@@ -41,7 +38,7 @@ def error(message, details, status_code):
     logger.exception(msg=message, extra=details)
 
 
-def warning(message, details):
+def warning(message, details=None):
     """
     Log a warning message during execution.
 
@@ -54,8 +51,6 @@ def warning(message, details):
     Returns:
 
     """
-    assert isinstance(message, str)
-    assert isinstance(details, dict)
 
     logger = logging.getLogger(settings.LOGGER_WARNING)
     logger.warning(msg=message, extra=details)
@@ -73,7 +68,6 @@ def info(message):
     Returns:
 
     """
-    assert isinstance(message, str)
 
     logger = logging.getLogger(settings.LOGGER_INFO)
     logger.info(msg=message)
