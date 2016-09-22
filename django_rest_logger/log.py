@@ -18,7 +18,7 @@ def exception():
     logger.exception(msg=sys.exc_info())
 
 
-def error(message, details=None, status_code=400):
+def error(message, details={}, status_code=400):
     """
     Log an error occurred during execution.
 
@@ -38,7 +38,7 @@ def error(message, details=None, status_code=400):
     logger.exception(msg=message, extra=details)
 
 
-def warning(message, details=None):
+def warning(message, details={}):
     """
     Log a warning message during execution.
 
