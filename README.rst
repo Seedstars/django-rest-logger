@@ -1,6 +1,11 @@
 REST Logger for Django
 =======================
 
+|Travis|
+
+.. |Travis| image:: https://travis-ci.org/pedrorodriguesgomes/django-rest-logger.svg
+   :target: https://travis-ci.org/pedrorodriguesgomes/django-rest-logger
+
 
 **REST logger for Django**
 
