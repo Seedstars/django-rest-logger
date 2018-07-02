@@ -27,7 +27,7 @@ author = 'Pedro Gomes'
 author_email = 'pedro.gomes@seedstarslabs.com'
 license = 'MIT'
 install_requires = [
-    'Django>=1.8.0,<1.9.0',
+    'Django>=1.8.7',
 ]
 
 
@@ -107,6 +107,8 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
         'Topic :: Internet :: WWW/HTTP',
     ]
 )
