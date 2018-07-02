@@ -17,9 +17,9 @@ This package provides a logger specifically designed to REST APIs using Django.
 Requirements
 ------------
 
--  Python (2.7, 3.3, 3.4)
--  Django (1.8)
--  Django REST Framework (3.3)
+-  Python (2.7, 3.3, 3.4, 3.5, 3.6, 3.7)
+-  Django (>=1.8.7)
+-  Django REST Framework (>=3.3.2)
 
 Installation
 ------------
