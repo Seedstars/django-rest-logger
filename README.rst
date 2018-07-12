@@ -33,14 +33,18 @@ Install using ``pip``\ ...
 Usage
 ------------
 
-Add default exception handler to your Django REST Framework settings::
+Add default exception handler to your Django REST Framework settings:
+
+.. code:: python
 
     REST_FRAMEWORK = {
         'EXCEPTION_HANDLER': 'django_rest_logger.handlers.rest_exception_handler',
     }
 
 
-Add logger configuration to your development settings.py::
+Add logger configuration to your development settings.py:
+
+.. code:: python
 
     LOGGING = {
         'version': 1,
@@ -83,7 +87,9 @@ Add logger configuration to your development settings.py::
     LOGGER_WARNING = DEFAULT_LOGGER
 
 
-Example for logger configuration using Sentry to be used in your production settings.py::
+Example for logger configuration using Sentry to be used in your production settings.py:
+
+.. code:: python
 
     LOGGING = {
         'version': 1,
