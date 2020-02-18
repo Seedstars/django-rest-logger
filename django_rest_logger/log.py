@@ -8,8 +8,8 @@ def exception():
     """
     Log an exception during execution.
 
-    This method should be used whenever an user wants to log a generic exception that is not
-    properly managed.
+    This method should be used whenever an user wants to log a
+    generic exception that is not properly managed.
 
     :param exception:
     :return:
@@ -22,7 +22,8 @@ def error(message, details={}, status_code=400):
     """
     Log an error occurred during execution.
 
-    This method should be used when an exception is properly managed but shouldn't occur.
+    This method should be used when an exception is properly managed but it
+    shouldn't occur.
 
     Args:
         message: message identifying the error
