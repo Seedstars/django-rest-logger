@@ -36,6 +36,7 @@ def error(message, details={}, status_code=400):
     details['http_status_code'] = status_code
 
     logger = logging.getLogger(settings.LOGGER_ERROR)
+    message = '{} details: {}'.format(message, details)
     logger.exception(msg=message, extra=details)
 
 
@@ -54,6 +55,8 @@ def warning(message, details={}):
     """
 
     logger = logging.getLogger(settings.LOGGER_WARNING)
+    if details:
+        message = '{} details: {}'.format(message, details)
     logger.warning(msg=message, extra=details)
 
 
