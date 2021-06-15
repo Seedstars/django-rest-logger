@@ -1,7 +1,12 @@
 from django.core.exceptions import PermissionDenied
 from django.http import Http404
-from django.utils import six
 from django.utils.translation import ugettext_lazy as _
+
+try:
+    from django.utils import six
+except ImportError:
+    import six
+
 from rest_framework import status, exceptions
 from rest_framework.response import Response
 
