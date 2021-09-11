@@ -121,6 +121,11 @@ Example for logger configuration using Sentry to be used in your production sett
                 'handlers': ['console'],
                 'propagate': False,
             },
+            'django.request': {
+                'level': 'DEBUG',
+                'handlers': ['sentry'],
+                'propagate': False,
+            },
             'raven': {
                 'level': 'DEBUG',
                 'handlers': ['sentry'],
